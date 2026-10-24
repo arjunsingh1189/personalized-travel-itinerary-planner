@@ -4,7 +4,7 @@ import { supabase } from "./supabase";
 import Auth from "./Auth";
 import "./App.css";
 
-const API_URL = "http://localhost:8000";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 const INTEREST_OPTIONS = ["food", "beaches", "sightseeing", "adventure", "culture", "shopping", "nightlife", "nature"];
 const STYLES = ["relaxed", "adventure", "luxury", "budget"];
 

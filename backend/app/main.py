@@ -8,9 +8,15 @@ from .schemas import TripRequest, Itinerary, RegenerateRequest, Day
 load_dotenv()
 
 app = FastAPI()
+
+origins = ["http://localhost:5173"]
+frontend_url = os.getenv("FRONTEND_URL")
+if frontend_url:
+    origins.append(frontend_url.rstrip("/"))
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=origins,
     allow_methods=["*"],
     allow_headers=["*"],
 )
